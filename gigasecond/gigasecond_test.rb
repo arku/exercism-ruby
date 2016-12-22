@@ -36,7 +36,8 @@ class GigasecondTest < Minitest::Test
 
   # Test your 1Gs anniversary
   def test_with_your_birthday
-    skip
+    result = Gigasecond.from(Time.utc(1995, 5, 1, 8, 0, 0))
+    assert_equal Time.utc(2027, 1, 7, 9, 46, 40), result
   end
 
   # Problems in exercism evolve over time, as we find better ways to ask
