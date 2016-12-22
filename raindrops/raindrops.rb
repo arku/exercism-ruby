@@ -1,9 +1,12 @@
 class Raindrops
+  RULES = { pling: 3, plang: 5, plong: 7 }
+
   def self.convert(number)
     raindrop_speak = ''
-    raindrop_speak << 'Pling' if number % 3 == 0
-    raindrop_speak << 'Plang' if number % 5 == 0
-    raindrop_speak << 'Plong' if number % 7 == 0
+
+    RULES.each do |rule, divisor|
+      raindrop_speak << rule.to_s.capitalize if number.send(:%, divisor).zero?
+    end
 
     raindrop_speak.empty? ? number.to_s : raindrop_speak
   end
